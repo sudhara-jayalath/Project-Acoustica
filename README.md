@@ -3,7 +3,7 @@
 Draft homepage for **Project Acoustica**: from the underground, to the world.
 Sessions · Academy · Records.
 
-Live preview: https://sudhara-jayalath.github.io/project-acoustica/
+Live preview: https://sudhara-jayalath.github.io/Project-Acoustica/
 
 This is a work-in-progress design preview. Anything in `[BRACKETS]` is a placeholder,
 and the forms are not connected yet. The page is set to `noindex` so search engines
