@@ -1,7 +1,7 @@
 # Project Acoustica — website (draft)
 
 Draft homepage for **Project Acoustica**: from the underground, to the world.
-Sessions · Academy · Records.
+Sessions · Academy · Records · Merch.
 
 Live preview: https://sudhara-jayalath.github.io/Project-Acoustica/
 
@@ -13,3 +13,4 @@ don't list it before the official launch.
 
 - `index.html` — the whole page (HTML + inline styles, no build step)
 - `assets/` — logo mark, wordmark, hero lockup, favicon and link-preview image
+- `assets/merch/` — merch mockups (props: tees, totes, posters)

@@ -25,6 +25,8 @@ body{margin:0;background:#0c0b0b}
 a{color:#e8ab35}a:hover{opacity:.82}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #e8ab35;outline-offset:3px}
 input::placeholder{color:#8f8781}
+.merch-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:960px){.merch-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 <style>
 html{scroll-behavior:smooth}
@@ -47,6 +49,7 @@ section[id],article[id]{scroll-margin-top:16px}
 <a href="#academy" style="color: #efeae4; text-decoration: none; padding: 12px 0">Academy</a>
 <a href="#records" style="color: #efeae4; text-decoration: none; padding: 12px 0">Records</a>
 <a href="#latest" style="color: #efeae4; text-decoration: none; padding: 12px 0">Artists</a>
+<a href="#merch" style="color: #efeae4; text-decoration: none; padding: 12px 0">Merch</a>
 <a href="#about" style="color: #efeae4; text-decoration: none; padding: 12px 0">About</a>
 </nav>
 <a href="#submit" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border: 1px solid #e8ab35; color: #e8ab35; text-decoration: none; font-size: 13px; font-weight: 700; font-stretch: 85%; letter-spacing: 0.14em; text-transform: uppercase">Submit your music</a>
@@ -201,6 +204,144 @@ section[id],article[id]{scroll-margin-top:16px}
 </div>
 </section>
 
+<section id="merch" aria-labelledby="merch-title" style="background: #121010; border-top: 1px solid #2a2525">
+<div style="max-width: 1240px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) clamp(16px, 4vw, 48px)">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 32px; margin-bottom: 40px">
+<div>
+<p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; font-stretch: 85%; letter-spacing: 0.18em; text-transform: uppercase; color: #e8ab35">Merch</p>
+<h2 id="merch-title" style="margin: 0; font-family: 'Bodoni Moda', Georgia, serif; font-weight: 500; font-size: clamp(34px, 3.8vw, 54px); line-height: 1.08">Wear the <em style="font-style: italic; color: #e8ab35">underground.</em></h2>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px">
+<span style="padding: 5px 11px; border: 1px solid #5a5250; color: #efeae4; font-size: 12px; font-weight: 700; font-stretch: 85%; letter-spacing: 0.14em; text-transform: uppercase">Shop opening soon</span>
+<a href="#newsletter" style="display: inline-flex; align-items: center; min-height: 44px; color: #e8ab35; text-decoration: none; font-size: 14px; font-weight: 700; font-stretch: 85%; letter-spacing: 0.12em; text-transform: uppercase">Get notified →</a>
+</div>
+</div>
+<div class="merch-grid" style="gap: 36px 24px">
+
+<article style="min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #1b1717; border: 1px solid #2c2626">
+<img src="assets/merch/tee-black.jpg" alt="Black T-shirt printed with the Project Acoustica pick logo and gold wordmark" style="display: block; width: 100%; height: 100%; object-fit: cover">
+<span style="position: absolute; top: 12px; left: 12px; padding: 4px 9px; background: #0c0b0b; color: #c9c4be; font-size: 11px; font-weight: 700; font-stretch: 85%; letter-spacing: 0.14em; text-transform: uppercase">T-shirt</span>
+</div>
+<div>
+<h3 style="margin: 0 0 2px; font-family: 'Bodoni Moda', Georgia, serif; font-weight: 500; font-size: 22px; line-height: 1.2">Pick Logo Tee</h3>
+<p style="margin: 0; font-size: 14px; color: #a9a29c">Black</p>
+</div>
+<div style="margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 12px">
+<span style="font-size: 15px; font-weight: 600; color: #efeae4">[PRICE]</span>
+<a href="#newsletter" aria-label="Notify me about the Pick Logo Tee" style="display: inline-flex; align-items: center; min-height: 44px; color: #e8ab35; text-decoration: none; font-size: 13px; font-weight: 700; font-stretch: 85%; letter-spacing: 0.12em; text-transform: uppercase">Notify me</a>
+</div>
+</article>
+
+<article style="min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #1b1717; border: 1px solid #2c2626">
+<img src="assets/merch/tee-bone.jpg" alt="Bone-white T-shirt printed with the words From the underground, to the world" style="display: block; width: 100%; height: 100%; object-fit: cover">
+<span style="position: absolute; top: 12px; left: 12px; padding: 4px 9px; background: #0c0b0b; color: #c9c4be; font-size: 11px; font-weight: 700; font-stretch: 85%; letter-spacing: 0.14em; text-transform: uppercase">T-shirt</span>
+</div>
+<div>
+<h3 style="margin: 0 0 2px; font-family: 'Bodoni Moda', Georgia, serif; font-weight: 500; font-size: 22px; line-height: 1.2">Underground Tee</h3>
+<p style="margin: 0; font-size: 14px; color: #a9a29c">Bone</p>
+</div>
+<div style="margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 12px">
+<span style="font-size: 15px; font-weight: 600; color: #efeae4">[PRICE]</span>
+<a href="#newsletter" aria-label="Notify me about the Underground Tee" style="display: inline-flex; align-items: center; min-height: 44px; color: #e8ab35; text-decoration: none; font-size: 13px; font-weight: 700; font-stretch: 85%; letter-spacing: 0.12em; text-transform: uppercase">Notify me</a>
+</div>
+</article>
+
+<article style="min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #1b1717; border: 1px solid #2c2626">
+<img src="assets/merch/tee-crimson.jpg" alt="Crimson T-shirt printed with the gold Project Acoustica wordmark" style="display: block; width: 100%; height: 100%; object-fit: cover">
+<span style="position: absolute; top: 12px; left: 12px; padding: 4px 9px; background: #0c0b0b; color: #c9c4be; font-size: 11px; font-weight: 700; font-stretch: 85%; letter-spacing: 0.14em; text-transform: uppercase">T-shirt</span>
+</div>
+<div>
+<h3 style="margin: 0 0 2px; font-family: 'Bodoni Moda', Georgia, serif; font-weight: 500; font-size: 22px; line-height: 1.2">Wordmark Tee</h3>
+<p style="margin: 0; font-size: 14px; color: #a9a29c">Crimson</p>
+</div>
+<div style="margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 12px">
+<span style="font-size: 15px; font-weight: 600; color: #efeae4">[PRICE]</span>
+<a href="#newsletter" aria-label="Notify me about the Wordmark Tee" style="display: inline-flex; align-items: center; min-height: 44px; color: #e8ab35; text-decoration: none; font-size: 13px; font-weight: 700; font-stretch: 85%; letter-spacing: 0.12em; text-transform: uppercase">Notify me</a>
+</div>
+</article>
+
+<article style="min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #1b1717; border: 1px solid #2c2626">
+<img src="assets/merch/tote-natural.jpg" alt="Natural canvas tote bag printed with the pick logo and Project Acoustica" style="display: block; width: 100%; height: 100%; object-fit: cover">
+<span style="position: absolute; top: 12px; left: 12px; padding: 4px 9px; background: #0c0b0b; color: #c9c4be; font-size: 11px; font-weight: 700; font-stretch: 85%; letter-spacing: 0.14em; text-transform: uppercase">Tote bag</span>
+</div>
+<div>
+<h3 style="margin: 0 0 2px; font-family: 'Bodoni Moda', Georgia, serif; font-weight: 500; font-size: 22px; line-height: 1.2">Pick Tote</h3>
+<p style="margin: 0; font-size: 14px; color: #a9a29c">Natural canvas</p>
+</div>
+<div style="margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 12px">
+<span style="font-size: 15px; font-weight: 600; color: #efeae4">[PRICE]</span>
+<a href="#newsletter" aria-label="Notify me about the Pick Tote" style="display: inline-flex; align-items: center; min-height: 44px; color: #e8ab35; text-decoration: none; font-size: 13px; font-weight: 700; font-stretch: 85%; letter-spacing: 0.12em; text-transform: uppercase">Notify me</a>
+</div>
+</article>
+
+<article style="min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #1b1717; border: 1px solid #2c2626">
+<img src="assets/merch/tote-black.jpg" alt="Black tote bag printed in gold with Watch. Learn. Release." style="display: block; width: 100%; height: 100%; object-fit: cover">
+<span style="position: absolute; top: 12px; left: 12px; padding: 4px 9px; background: #0c0b0b; color: #c9c4be; font-size: 11px; font-weight: 700; font-stretch: 85%; letter-spacing: 0.14em; text-transform: uppercase">Tote bag</span>
+</div>
+<div>
+<h3 style="margin: 0 0 2px; font-family: 'Bodoni Moda', Georgia, serif; font-weight: 500; font-size: 22px; line-height: 1.2">Watch · Learn · Release Tote</h3>
+<p style="margin: 0; font-size: 14px; color: #a9a29c">Black canvas</p>
+</div>
+<div style="margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 12px">
+<span style="font-size: 15px; font-weight: 600; color: #efeae4">[PRICE]</span>
+<a href="#newsletter" aria-label="Notify me about the Watch Learn Release Tote" style="display: inline-flex; align-items: center; min-height: 44px; color: #e8ab35; text-decoration: none; font-size: 13px; font-weight: 700; font-stretch: 85%; letter-spacing: 0.12em; text-transform: uppercase">Notify me</a>
+</div>
+</article>
+
+<article style="min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #1b1717; border: 1px solid #2c2626">
+<img src="assets/merch/poster-sessions.jpg" alt="Dark poster with the pick logo over a crimson glow, titled Underground Sessions" style="display: block; width: 100%; height: 100%; object-fit: cover">
+<span style="position: absolute; top: 12px; left: 12px; padding: 4px 9px; background: #0c0b0b; color: #c9c4be; font-size: 11px; font-weight: 700; font-stretch: 85%; letter-spacing: 0.14em; text-transform: uppercase">Poster</span>
+</div>
+<div>
+<h3 style="margin: 0 0 2px; font-family: 'Bodoni Moda', Georgia, serif; font-weight: 500; font-size: 22px; line-height: 1.2">Underground Sessions</h3>
+<p style="margin: 0; font-size: 14px; color: #a9a29c">Poster · [SIZE]</p>
+</div>
+<div style="margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 12px">
+<span style="font-size: 15px; font-weight: 600; color: #efeae4">[PRICE]</span>
+<a href="#newsletter" aria-label="Notify me about the Underground Sessions poster" style="display: inline-flex; align-items: center; min-height: 44px; color: #e8ab35; text-decoration: none; font-size: 13px; font-weight: 700; font-stretch: 85%; letter-spacing: 0.12em; text-transform: uppercase">Notify me</a>
+</div>
+</article>
+
+<article style="min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #1b1717; border: 1px solid #2c2626">
+<img src="assets/merch/poster-underground.jpg" alt="Crimson typographic poster reading From the underground, to the world" style="display: block; width: 100%; height: 100%; object-fit: cover">
+<span style="position: absolute; top: 12px; left: 12px; padding: 4px 9px; background: #0c0b0b; color: #c9c4be; font-size: 11px; font-weight: 700; font-stretch: 85%; letter-spacing: 0.14em; text-transform: uppercase">Poster</span>
+</div>
+<div>
+<h3 style="margin: 0 0 2px; font-family: 'Bodoni Moda', Georgia, serif; font-weight: 500; font-size: 22px; line-height: 1.2">From the Underground</h3>
+<p style="margin: 0; font-size: 14px; color: #a9a29c">Poster · [SIZE]</p>
+</div>
+<div style="margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 12px">
+<span style="font-size: 15px; font-weight: 600; color: #efeae4">[PRICE]</span>
+<a href="#newsletter" aria-label="Notify me about the From the Underground poster" style="display: inline-flex; align-items: center; min-height: 44px; color: #e8ab35; text-decoration: none; font-size: 13px; font-weight: 700; font-stretch: 85%; letter-spacing: 0.12em; text-transform: uppercase">Notify me</a>
+</div>
+</article>
+
+<article style="min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #1b1717; border: 1px solid #2c2626">
+<img src="assets/merch/poster-release.jpg" alt="Cream poster with a crimson spiral and the words Watch. Learn. Release." style="display: block; width: 100%; height: 100%; object-fit: cover">
+<span style="position: absolute; top: 12px; left: 12px; padding: 4px 9px; background: #0c0b0b; color: #c9c4be; font-size: 11px; font-weight: 700; font-stretch: 85%; letter-spacing: 0.14em; text-transform: uppercase">Poster</span>
+</div>
+<div>
+<h3 style="margin: 0 0 2px; font-family: 'Bodoni Moda', Georgia, serif; font-weight: 500; font-size: 22px; line-height: 1.2">Release Spiral</h3>
+<p style="margin: 0; font-size: 14px; color: #a9a29c">Poster · [SIZE]</p>
+</div>
+<div style="margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 12px">
+<span style="font-size: 15px; font-weight: 600; color: #efeae4">[PRICE]</span>
+<a href="#newsletter" aria-label="Notify me about the Release Spiral poster" style="display: inline-flex; align-items: center; min-height: 44px; color: #e8ab35; text-decoration: none; font-size: 13px; font-weight: 700; font-stretch: 85%; letter-spacing: 0.12em; text-transform: uppercase">Notify me</a>
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
 <section id="submit" aria-labelledby="submit-title" style="background: #a3121a">
 <div style="max-width: 1240px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: flex-start; gap: 40px 64px">
 <div style="flex: 1 1 380px; min-width: 0">
@@ -251,7 +392,7 @@ section[id],article[id]{scroll-margin-top:16px}
 <img src="assets/wordmark.png" alt="Project Acoustica" style="height: 38px; width: auto; display: block">
 </div>
 <p style="margin: 0 0 28px; color: #a9a29c">From the underground, to the world.</p>
-<form aria-label="Newsletter" data-demo="true" style="display: flex; flex-direction: column; gap: 8px">
+<form aria-label="Newsletter" data-demo="true" id="newsletter" style="display: flex; flex-direction: column; gap: 8px">
 <label for="f-news" style="font-size: 12px; font-weight: 700; font-stretch: 85%; letter-spacing: 0.14em; text-transform: uppercase; color: #c9c4be">Stay in the loop</label>
 <div style="display: flex; flex-wrap: wrap; gap: 8px">
 <input id="f-news" name="newsletter" type="email" autocomplete="email" placeholder="Your email" style="flex: 1 1 200px; min-width: 0; box-sizing: border-box; min-height: 48px; padding: 12px 14px; background: #161313; border: 1px solid #3a3232; color: #efeae4; font: inherit; font-size: 16px">
@@ -266,6 +407,7 @@ section[id],article[id]{scroll-margin-top:16px}
 <a href="#academy" style="color: #efeae4; text-decoration: none; padding: 6px 0">Academy</a>
 <a href="#records" style="color: #efeae4; text-decoration: none; padding: 6px 0">Records</a>
 <a href="#latest" style="color: #efeae4; text-decoration: none; padding: 6px 0">Artists</a>
+<a href="#merch" style="color: #efeae4; text-decoration: none; padding: 6px 0">Merch</a>
 </nav>
 <nav aria-label="Project" style="display: flex; flex-direction: column; gap: 2px; font-size: 15px">
 <p style="margin: 0 0 8px; font-size: 12px; font-weight: 700; font-stretch: 85%; letter-spacing: 0.14em; text-transform: uppercase; color: #8f8781">Project</p>
