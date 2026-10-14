@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project Acoustica — Between the lines</title>
+<meta name="description" content="Every time one tries to stop, contain, control the chaos, we draw a line. Project Acoustica is just the contained border.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#000000">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Project Acoustica — Between the lines">
+<meta property="og:description" content="Read between the lines to see, feel, observe the cHaOs. LiVe aS iT gEts.">
+<meta property="og:url" content="https://sudhara-jayalath.github.io/Project-Acoustica/between-the-lines/">
+<meta property="og:image" content="https://sudhara-jayalath.github.io/Project-Acoustica/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&display=swap">
+<style>
+:root{
+  --void:#000;
+  --bone:#ece6dc;
+  --ash:#a39c95;
+  --struck:#8d8780;
+  --silver:#c7c8cc;
+  --rule:#1d1d20;
+  --crimson:#a3121a;
+  --ember:#e8452c;
+  --gold:#e8ab35;
+  --serif:'Bodoni Moda', Didot, 'Bodoni 72', Georgia, serif;
+  --sans:'Archivo', system-ui, sans-serif;
+  --gutter:clamp(16px, 4vw, 56px);
+}
+*{box-sizing:border-box}
+html{background:var(--void);color-scheme:dark;scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--void);color:var(--bone);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+
+/* draft note + header */
+.draft{margin:0;padding:10px var(--gutter);font-size:14px;color:var(--ash);border-bottom:1px solid var(--rule)}
+.draft a{color:var(--bone);text-underline-offset:3px}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 32px;padding:14px var(--gutter)}
+.brand{display:flex;align-items:center;gap:12px;min-height:44px;text-decoration:none}
+.brand img{display:block;width:auto}
+.top nav{display:flex;flex-wrap:wrap;gap:0 24px;font-size:15px}
+.top nav a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;color:var(--bone)}
+.top nav a:hover{color:var(--silver);text-decoration:underline;text-underline-offset:5px}
+
+/* the chaos: mixed-case words, every letter its own width and weight */
+.chaos{font-family:var(--sans);color:var(--ember);letter-spacing:0}
+.nb{white-space:nowrap}
+.chaos .w{display:inline-block;white-space:nowrap}
+.chaos .c{display:inline-block}
+
+/* hero */
+.hero{min-height:calc(100svh - 120px);display:flex;flex-direction:column;justify-content:space-between;padding:clamp(20px,5vh,64px) 0 clamp(24px,4vh,48px)}
+.statement{margin:0;padding:0 var(--gutter);font-family:var(--serif);font-weight:400;font-size:clamp(36px,5.3vw,84px);line-height:1.04;letter-spacing:-0.012em;max-width:16.5em;text-wrap:pretty}
+.statement .chaos{font-size:.86em}
+.strike{color:var(--struck);background:linear-gradient(var(--silver),var(--silver)) no-repeat 0 58%/0% .065em;-webkit-box-decoration-break:clone;box-decoration-break:clone;animation:strike .8s .35s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes strike{to{background-size:100% .065em}}
+.field{position:relative;height:clamp(220px,36vh,380px);margin:clamp(20px,4vh,44px) 0;touch-action:pan-y;
+  background:radial-gradient(ellipse 46% 50% at 50% 50%, rgba(163,18,26,.16), rgba(163,18,26,0) 72%)}
+.field canvas,.string canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero-foot{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 40px;padding:0 var(--gutter)}
+.border-line{margin:0;font-family:var(--serif);font-style:italic;font-size:clamp(22px,2.4vw,34px);line-height:1.2;max-width:21em}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px}
+.hint{margin:0;font-size:15px;color:var(--ash)}
+.hint-touch{display:none}
+@media (hover:none){.hint-hover{display:none}.hint-touch{display:inline}}
+.sound{min-height:44px;padding:0 20px;border:1px solid #3d3d42;border-radius:999px;background:transparent;color:var(--bone);font:inherit;font-size:15px;cursor:pointer}
+.sound:hover{border-color:var(--silver)}
+.sound[aria-pressed="true"]{border-color:var(--ember);color:#fff}
+
+/* read between the lines */
+.between{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:48px 64px;align-items:center;padding:clamp(88px,13vh,168px) var(--gutter) clamp(64px,9vh,112px);max-width:1440px;margin:0 auto}
+.between .statement{padding:0;font-size:clamp(32px,4vw,62px);max-width:13.5em}
+.pick{margin:0;justify-self:center;max-width:300px}
+.pick img{display:block;width:100%;height:auto;filter:drop-shadow(0 24px 48px rgba(163,18,26,.35))}
+.pick figcaption{margin-top:24px;font-size:15px;line-height:1.5;color:var(--ash);max-width:28ch}
+@media (max-width:820px){.between{grid-template-columns:1fr}.pick{justify-self:start;max-width:220px}}
+
+/* rows between strings */
+.string{position:relative;height:44px;touch-action:pan-y}
+.row{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr) 10em;gap:10px 48px;align-items:baseline;padding:clamp(18px,3vh,30px) var(--gutter);max-width:1440px;margin:0 auto;scroll-margin-top:24px}
+.row h3{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(34px,4vw,58px);line-height:1}
+.row p{margin:0;max-width:42ch;font-size:18px;color:#d6cfc6}
+.row a{display:inline-flex;align-items:center;justify-self:end;min-height:44px;color:var(--gold);font-weight:600;text-underline-offset:5px;white-space:nowrap}
+.row a:hover{color:#f0c060}
+@media (max-width:760px){.row{grid-template-columns:1fr;gap:8px}.row a{justify-self:start}}
+
+/* signature */
+.sign{padding:clamp(96px,15vh,190px) var(--gutter) clamp(56px,8vh,96px);max-width:1440px;margin:0 auto}
+.live{margin:0;font-size:clamp(54px,13.5vw,214px);line-height:.9;letter-spacing:-.015em;cursor:default}
+.live .c{transition:font-variation-settings .35s ease, transform .35s ease}
+@media (prefers-reduced-motion: reduce){.live .c{transition:none}.strike{animation:none;background-size:100% .065em}}
+.byline{margin:22px 0 0;font-family:var(--serif);font-style:italic;font-size:clamp(19px,1.8vw,24px)}
+.cta{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;margin-top:56px}
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 26px;background:var(--bone);color:#000;text-decoration:none;font-weight:600}
+.btn:hover{background:#fff}
+.cta .quiet{color:var(--bone);text-underline-offset:5px}
+
+footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:32px var(--gutter);border-top:1px solid var(--rule);font-size:14px;color:var(--ash)}
+footer img{display:block;height:24px;width:auto}
+footer p{margin:0}
+</style>
+</head>
+<body>
+
+<p class="draft">Concept draft built on Sagara’s statement. <a href="../">Compare it with the current homepage</a>.</p>
+
+<header class="top">
+  <a class="brand" href="#top" aria-label="Project Acoustica, back to top">
+    <img src="../assets/pick-160.png" alt="" width="34" height="40">
+    <img src="../assets/wordmark.png" alt="" width="121" height="26">
+  </a>
+  <nav aria-label="Main">
+    <a href="#sessions">Sessions</a>
+    <a href="#academy">Academy</a>
+    <a href="#records">Records</a>
+    <a href="#merch">Merch</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <h1 id="hero-title" class="statement">Every time one tries to <span class="strike">stop, contain, control</span> the <span class="nb"><span data-chaos>CHaoS</span>,</span> we draw a line.</h1>
+    <div class="field" id="field">
+      <canvas aria-hidden="true"></canvas>
+    </div>
+    <div class="hero-foot">
+      <p class="border-line">Well, Project Acoustica is just the contained border.</p>
+      <div class="hero-actions">
+        <p class="hint"><span class="hint-hover">Run your cursor across the strings.</span><span class="hint-touch">Tap a string.</span></p>
+        <button type="button" class="sound" aria-pressed="false">Sound</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="between" aria-labelledby="between-title">
+    <h2 id="between-title" class="statement">Read between the lines to see, feel, observe the <span class="nb"><span data-chaos>cHaOs</span>.</span> This is what we are.</h2>
+    <figure class="pick">
+      <img src="../assets/pick-640.png" alt="The Project Acoustica logo: a silver guitar-pick outline around a crimson field" width="542" height="640">
+      <figcaption>The silver border is the line. The red field is what it holds.</figcaption>
+    </figure>
+  </section>
+
+  <section aria-label="What the line holds">
+    <div class="string" data-freq="329.63" aria-hidden="true"><canvas></canvas></div>
+    <article class="row" id="sessions">
+      <h3>Sessions</h3>
+      <p>Underground artists, filmed and shared live as it gets. Started in Sri Lanka, now open to artists everywhere.</p>
+      <a href="../#sessions">Watch the sessions</a>
+    </article>
+    <div class="string" data-freq="392.00" aria-hidden="true"><canvas></canvas></div>
+    <article class="row" id="academy">
+      <h3>Academy</h3>
+      <p>Lessons with working musicians. Learn the technique that holds your sound together.</p>
+      <a href="../#academy">Join the waitlist</a>
+    </article>
+    <div class="string" data-freq="440.00" aria-hidden="true"><canvas></canvas></div>
+    <article class="row" id="records">
+      <h3>Records</h3>
+      <p>An independent label for the artists we believe in, from the first recording to the release.</p>
+      <a href="../#submit">Send a demo</a>
+    </article>
+    <div class="string" data-freq="493.88" aria-hidden="true"><canvas></canvas></div>
+    <article class="row" id="merch">
+      <h3>Merch</h3>
+      <p>Shirts, totes and posters. The line, in cotton and paper.</p>
+      <a href="../#merch">See the merch</a>
+    </article>
+    <div class="string" data-freq="587.33" aria-hidden="true"><canvas></canvas></div>
+  </section>
+
+  <section class="sign" aria-labelledby="sign-title">
+    <h2 id="sign-title" class="live" data-chaos data-reshuffle>LiVe aS iT gEts</h2>
+    <p class="byline">— Sagara Weerasinghe, Project Acoustica</p>
+    <div class="cta">
+      <a class="btn" href="../#submit">Send us your music</a>
+      <a class="quiet" href="../">See the current homepage</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <img src="../assets/wordmark.png" alt="Project Acoustica" width="112" height="24">
+  <p>© 2026 Project Acoustica</p>
+</footer>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const rand = (a, b) => a + Math.random() * (b - a);
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+  /* ---------- chaos type ---------- */
+  function shuffle(vis) {
+    vis.querySelectorAll('.c').forEach(s => {
+      s.style.fontVariationSettings = `'wdth' ${rand(62, 125).toFixed(0)}, 'wght' ${rand(300, 800).toFixed(0)}`;
+      s.style.transform = `translateY(${rand(-0.05, 0.05).toFixed(3)}em)`;
+    });
+  }
+  document.querySelectorAll('[data-chaos]').forEach(el => {
+    const text = el.textContent;
+    el.textContent = '';
+    const sr = document.createElement('span'); sr.className = 'sr'; sr.textContent = text;
+    const vis = document.createElement('span'); vis.className = 'chaos'; vis.setAttribute('aria-hidden', 'true');
+    text.split(' ').forEach((word, i) => {
+      if (i) vis.append(' ');
+      const w = document.createElement('span'); w.className = 'w';
+      for (const ch of word) { const c = document.createElement('span'); c.className = 'c'; c.textContent = ch; w.append(c); }
+      vis.append(w);
+    });
+    el.append(sr, vis);
+    shuffle(vis);
+    if (el.hasAttribute('data-reshuffle')) {
+      el.addEventListener('pointerenter', () => shuffle(vis));
+      el.addEventListener('click', () => shuffle(vis));
+    }
+  });
+
+  /* ---------- sound: Karplus-Strong plucked string ---------- */
+  let actx = null, soundOn = false, voices = 0;
+  const soundBtn = document.querySelector('.sound');
+  soundBtn.addEventListener('click', () => {
+    soundOn = !soundOn;
+    soundBtn.setAttribute('aria-pressed', String(soundOn));
+    if (soundOn) {
+      try { if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) { actx = null; }
+      if (actx && actx.state === 'suspended') actx.resume();
+      playPluck(196, .5, 0);
+    }
+  });
+  function playPluck(freq, vel, pan) {
+    if (!soundOn || !actx || voices > 10) return;
+    const sr = actx.sampleRate, n = Math.floor(sr * 2.6);
+    const buf = actx.createBuffer(1, n, sr), d = buf.getChannelData(0);
+    const N = Math.max(2, Math.round(sr / freq)), ring = new Float32Array(N);
+    for (let i = 0; i < N; i++) ring[i] = Math.random() * 2 - 1;
+    for (let i = 1; i < N; i++) ring[i] = (ring[i] + ring[i - 1]) * .5;   // soften the attack
+    let k = 0;
+    for (let i = 0; i < n; i++) { const nx = (k + 1) % N; const v = ring[k]; d[i] = v; ring[k] = .4985 * (v + ring[nx]); k = nx; }
+    const src = actx.createBufferSource(); src.buffer = buf;
+    const g = actx.createGain(); g.gain.value = .28 * clamp(vel, .15, 1);
+    let out = g;
+    if (actx.createStereoPanner) { const p = actx.createStereoPanner(); p.pan.value = clamp(pan, -.8, .8); g.connect(p); out = p; }
+    src.connect(g); out.connect(actx.destination);
+    voices++; src.onended = () => voices--;
+    src.start();
+  }
+
+  /* ---------- strings ---------- */
+  const EMBER = 'rgba(232,69,44,';
+  class Str {
+    constructor(freq, th, wound, vf, tau) { Object.assign(this, { f: freq, th, wound, vf, tau, y: 0, A: 0, p: .5, t0: 0, last: 0, norm: 1 }); }
+    pluck(pn, amp, now) {
+      this.p = clamp(pn, .06, .94);
+      let s = 0; for (let k = 1; k <= 3; k++) s += Math.sin(k * Math.PI * this.p) ** 2 / (k * k);
+      this.norm = 1 / Math.max(.25, s);
+      this.A = Math.min(24, Math.max(amp, this.env(now) + amp * .5));
+      this.t0 = now; this.last = now;
+    }
+    env(now) { return this.A * Math.exp(-(now - this.t0) / 1000 / this.tau); }
+    disp(xn, now) {
+      const e = this.env(now); if (e < .05) return 0;
+      const t = (now - this.t0) / 1000; let y = 0;
+      for (let k = 1; k <= 3; k++) y += Math.sin(k * Math.PI * this.p) / (k * k) * Math.sin(k * Math.PI * xn) * Math.cos(2 * Math.PI * this.vf * k * t);
+      return e * y * this.norm;
+    }
+  }
+  function metal(ctx, W) {
+    const g = ctx.createLinearGradient(0, 0, W, 0);
+    g.addColorStop(0, '#5d5e63'); g.addColorStop(.18, '#d9dade'); g.addColorStop(.5, '#9fa0a5');
+    g.addColorStop(.82, '#e4e5e8'); g.addColorStop(1, '#6a6b70');
+    return g;
+  }
+  function drawString(ctx, s, W, now, prog, grad) {
+    const xEnd = W * prog; if (xEnd <= 0) return;
+    const e = reduce ? 0 : s.env(now), step = 6;
+    if (e > 2) {                        // the blur of a vibrating string
+      ctx.save(); ctx.strokeStyle = EMBER + Math.min(.16, e / 80) + ')'; ctx.lineWidth = 1;
+      for (const sign of [1, -1]) {
+        ctx.beginPath();
+        for (let x = 0; x <= xEnd; x += step) {
+          const xn = x / W, tri = xn < s.p ? xn / s.p : (1 - xn) / (1 - s.p), yy = s.y + sign * e * tri;
+          x ? ctx.lineTo(x, yy) : ctx.moveTo(x, yy);
+        }
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+    ctx.beginPath();
+    for (let x = 0; ; x += step) {
+      const xx = Math.min(x, xEnd), yy = s.y + (e > .05 ? s.disp(xx / W, now) : 0);
+      x ? ctx.lineTo(xx, yy) : ctx.moveTo(xx, yy);
+      if (xx >= xEnd) break;
+    }
+    ctx.lineCap = 'round'; ctx.lineWidth = s.th; ctx.strokeStyle = grad;
+    if (e > 1) { ctx.shadowColor = EMBER + '.9)'; ctx.shadowBlur = Math.min(18, e * .9); }
+    ctx.stroke(); ctx.shadowBlur = 0;
+    if (s.wound) { ctx.setLineDash([1.2, 2]); ctx.strokeStyle = 'rgba(0,0,0,.5)'; ctx.lineWidth = s.th * .8; ctx.stroke(); ctx.setLineDash([]); }
+  }
+  function attachPluck(el, getStrings, onPluck) {
+    const last = new Map();
+    const local = e => { const r = el.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top, W: r.width }; };
+    el.addEventListener('pointermove', e => {
+      const cur = local(e), prev = last.get(e.pointerId); last.set(e.pointerId, cur);
+      if (!prev || prev.y === cur.y) return;
+      const now = performance.now();
+      for (const s of getStrings()) {
+        if ((prev.y - s.y) * (cur.y - s.y) <= 0 && now - s.last > 45) {
+          const amp = clamp(Math.abs(cur.y - prev.y) * .5 + Math.abs(cur.x - prev.x) * .08 + 4, 4, 20);
+          onPluck(s, cur.x, amp, cur.W, now);
+        }
+      }
+    });
+    el.addEventListener('pointerleave', e => last.delete(e.pointerId));
+    el.addEventListener('pointerdown', e => {
+      const cur = local(e); let best = null, bd = 22;
+      for (const s of getStrings()) { const d = Math.abs(cur.y - s.y); if (d < bd) { bd = d; best = s; } }
+      if (best) onPluck(best, cur.x, 13, cur.W, performance.now());
+    });
+  }
+
+  let running = false;
+  const kick = () => { if (!running && !reduce) { running = true; requestAnimationFrame(frame); } };
+
+  /* ---------- hero: six strings holding the chaos ---------- */
+  const field = document.getElementById('field');
+  const hc = field.querySelector('canvas'), hctx = hc.getContext('2d');
+  const pc = document.createElement('canvas'), pctx = pc.getContext('2d');
+  const strings = [
+    new Str(82.41, 3.2, true, 5.5, 1.5), new Str(110.00, 2.6, true, 6.4, 1.45), new Str(146.83, 2.1, true, 7.3, 1.4),
+    new Str(196.00, 1.6, false, 8.2, 1.3), new Str(246.94, 1.25, false, 9.2, 1.2), new Str(329.63, .95, false, 10.5, 1.1)
+  ];
+  let W = 0, H = 0, dpr = 1, grad = null, parts = [], escapees = [], heroVisible = true, start = performance.now();
+  function layoutHero() {
+    const r = field.getBoundingClientRect();
+    W = r.width; H = r.height; dpr = Math.min(2, window.devicePixelRatio || 1);
+    for (const c of [hc, pc]) { c.width = Math.round(W * dpr); c.height = Math.round(H * dpr); }
+    const pad = 18, gap = (H - pad * 2) / 5;
+    strings.forEach((s, i) => s.y = pad + gap * i);
+    grad = metal(hctx, W);
+    const n = clamp(Math.round(W * H / 470), 200, 1300);
+    const top = strings[0].y + 3, bot = strings[5].y - 3;
+    parts = Array.from({ length: n }, () => ({
+      x: rand(0, W), y: rand(top, bot), vx: rand(-.5, .5), vy: rand(-.3, .3),
+      g: Math.random() < .03 ? GROUPS.length - 1 : (Math.random() * (GROUPS.length - 1)) | 0
+    }));
+    parts.sort((a, b) => a.g - b.g);
+    if (reduce) { for (let i = 0; i < 90; i++) stepParticles(start + i * 16, i === 89); renderHero(start + 99999); }
+  }
+  // particle groups: colour, alpha, streak width (batched so each group is one stroke)
+  const GROUPS = [
+    ['#5e0a0e', .9, 2.0], ['#8e1018', .85, 1.6], ['#b3121b', .8, 1.4], ['#b3121b', .55, 2.2],
+    ['#c8261a', .8, 1.2], ['#c8261a', .5, 1.8], ['#e8452c', .9, 1.1], ['#e8452c', .45, 1.6], ['#c7c8cc', .7, 1]
+  ];
+  const flow = (x, y, t) => Math.sin(x * .0062 + t * .00031) * 2.1 + Math.cos(y * .021 - t * .00047) * 1.7 + Math.sin((x - y) * .0041 + t * .00023) * 1.3;
+  function stepParticles(now, draw = true) {
+    const top = strings[0].y + 3, bot = strings[5].y - 3;
+    for (const p of parts) {
+      const a = flow(p.x, p.y, now);
+      p.vx = (p.vx + Math.cos(a) * .05) * .955; p.vy = (p.vy + Math.sin(a) * .05) * .955;
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x += W; else if (p.x > W) p.x -= W;
+      if (p.y < top) { p.y = top; p.vy = Math.abs(p.vy) * .6; } else if (p.y > bot) { p.y = bot; p.vy = -Math.abs(p.vy) * .6; }
+    }
+    for (let i = escapees.length - 1; i >= 0; i--) {
+      const p = escapees[i];
+      p.x += p.vx; p.y += p.vy; p.vy *= .985; p.vx *= .985; p.life -= .014;
+      if (p.life <= 0) escapees.splice(i, 1);
+    }
+    if (!draw) return;
+    pctx.setTransform(1, 0, 0, 1, 0, 0); pctx.clearRect(0, 0, pc.width, pc.height);
+    pctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    pctx.lineCap = 'round';
+    const L = 9;                                      // streak length in frames of travel
+    let gi = -1;
+    for (const p of parts) {
+      if (p.g !== gi) {
+        if (gi >= 0) pctx.stroke();
+        gi = p.g; const [c, al, w] = GROUPS[gi];
+        pctx.strokeStyle = c; pctx.globalAlpha = al; pctx.lineWidth = w; pctx.beginPath();
+      }
+      pctx.moveTo(p.x - p.vx * L, p.y - p.vy * L); pctx.lineTo(p.x + .01, p.y);
+    }
+    if (gi >= 0) pctx.stroke();
+    for (const p of escapees) {
+      pctx.globalAlpha = p.life * .9; pctx.strokeStyle = GROUPS[p.g][0]; pctx.lineWidth = 1.4;
+      pctx.beginPath(); pctx.moveTo(p.x - p.vx * L, p.y - p.vy * L); pctx.lineTo(p.x, p.y); pctx.stroke();
+    }
+    pctx.globalAlpha = 1;
+  }
+  const ease = t => 1 - Math.pow(1 - clamp(t, 0, 1), 3);
+  function renderHero(now) {
+    const t = now - start;
+    hctx.setTransform(1, 0, 0, 1, 0, 0); hctx.clearRect(0, 0, hc.width, hc.height);
+    hctx.globalAlpha = reduce ? 1 : ease((t - 1500) / 1100);
+    if (hctx.globalAlpha > 0) hctx.drawImage(pc, 0, 0);
+    hctx.globalAlpha = 1;
+    hctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    strings.forEach((s, i) => drawString(hctx, s, W, now, reduce ? 1 : ease((t - 450 - i * 110) / 750), grad));
+  }
+  attachPluck(field, () => strings, (s, x, amp, w, now) => {
+    s.pluck(x / w, amp, now);
+    playPluck(s.f, amp / 20, (x / w) * 2 - 1);
+    const gap = strings[1].y - strings[0].y;
+    for (const p of parts) {
+      if (Math.abs(p.y - s.y) < gap * 1.2 && Math.abs(p.x - x) < 170) {
+        p.vy += (p.y < s.y ? -1 : 1) * amp * .06 * rand(.4, 1.4); p.vx += rand(-1, 1) * amp * .04;
+      }
+    }
+    const outer = s === strings[0] ? -1 : s === strings[5] ? 1 : 0;
+    if (outer && amp > 9 && !reduce) {
+      for (let i = 0; i < 18; i++) escapees.push({ x: x + rand(-40, 40), y: s.y, vx: rand(-1.2, 1.2), vy: outer * rand(.8, 3), life: 1, g: (Math.random() * (GROUPS.length - 1)) | 0 });
+    }
+    if (reduce) renderHero(now);
+    kick();
+  });
+  new IntersectionObserver(es => { heroVisible = es[0].isIntersecting; if (heroVisible) kick(); }).observe(field);
+
+  /* ---------- the single strings between the rows ---------- */
+  const dividers = [...document.querySelectorAll('.string')].map(el => {
+    const c = el.querySelector('canvas');
+    const d = { el, c, ctx: c.getContext('2d'), s: new Str(+el.dataset.freq, 1.4, false, 11, 1.0), W: 0, H: 0, dpr: 1, grad: null, active: false };
+    d.layout = () => {
+      const r = el.getBoundingClientRect(); d.W = r.width; d.H = r.height; d.dpr = Math.min(2, window.devicePixelRatio || 1);
+      c.width = Math.round(d.W * d.dpr); c.height = Math.round(d.H * d.dpr); d.s.y = d.H / 2; d.grad = metal(d.ctx, d.W); d.draw(performance.now());
+    };
+    d.draw = now => {
+      d.ctx.setTransform(1, 0, 0, 1, 0, 0); d.ctx.clearRect(0, 0, c.width, c.height);
+      d.ctx.setTransform(d.dpr, 0, 0, d.dpr, 0, 0);
+      drawString(d.ctx, d.s, d.W, now, 1, d.grad);
+    };
+    attachPluck(el, () => [d.s], (s, x, amp, w, now) => { s.pluck(x / w, Math.min(amp, 12), now); playPluck(s.f, amp / 20, (x / w) * 2 - 1); d.active = true; kick(); });
+    return d;
+  });
+
+  /* ---------- loop ---------- */
+  function frame(now) {
+    running = false;
+    let more = false;
+    if (heroVisible) { stepParticles(now); renderHero(now); more = true; }
+    for (const d of dividers) {
+      if (!d.active) continue;
+      d.draw(now);
+      if (d.s.env(now) < .05) { d.active = false; d.draw(now); } else more = true;
+    }
+    if (more) kick();
+  }
+
+  let lastW = -1, lastH = -1, rt;
+  const layoutAll = () => {
+    const r = field.getBoundingClientRect();
+    if (r.width === lastW && r.height === lastH) return;
+    lastW = r.width; lastH = r.height;
+    layoutHero(); dividers.forEach(d => d.layout()); if (!reduce) kick();
+  };
+  new ResizeObserver(() => { clearTimeout(rt); rt = setTimeout(layoutAll, 80); }).observe(document.body);
+  layoutAll();
+})();
+</script>
+</body>
+</html>
